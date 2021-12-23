@@ -116,6 +116,82 @@ class UnitOfMeasurementManager
         await connection.commit();
         await connection.close();
     } // update method ends
+
+    
+    async getAll()
+    {
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        
+        // getting all records
+        let rs = await connection.execute(`select * from ac_uom`);
+        rs = rs ? rs.rows : []
+
+        // closing the connection
+        await connection.close();
+        
+        // preparing all data to return
+        const unitOfMeasurements = rs.map(row => new entities.UnitOfMeasurement(parseInt(row[0]), row[1].trim()));
+        
+        return unitOfMeasurements;
+    } // getAll method ends
+
+    async getByCode(code)
+    {
+        // validation : code exists or not
+        if(!code) throw `Code Required`;
+        // validation : code is positive
+        if(code <= 0) throw `Invalid Code : must be > 0`;
+        
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        
+        // getting row
+        let rs = await connection.execute(`select * from ac_uom where code = ${code}`);
+        // validation : code exists or not
+        if(rs.rows.length == 0) 
+        {
+            await connection.close();
+            throw `Invalid Code : ${code}`;
+        }
+        const unitOfMeasurement = new entities.UnitOfMeasurement(parseInt(rs.rows[0][0]), rs.rows[0][1].trim());
+
+        // closing the connection
+        await connection.close();
+
+        return unitOfMeasurement;
+    } // getByCode method ends
+ 
+    async getByName(name)
+    {
+        // validation : name exists or not
+        if(!name) throw `Name Required`;
+        // validation : name does not exceeds 5 char
+        if(name.length > 5) throw `Name cannot exceed 5 characters`;
+        
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        
+        
+        let rs = await connection.execute(`select * from ac_uom where lower(name) = lower('${name}')`);
+        // validation : name does not already exists
+        if(rs.rows.length == 0) 
+        {
+            await connection.close();
+            throw `Invalid Name : ${name}`;
+        }
+        const unitOfMeasurement = new entities.UnitOfMeasurement(parseInt(rs.rows[0][0]), rs.rows[0][1].trim());
+        // committing and  closing the connection
+        await connection.close();
+
+        return unitOfMeasurement;
+    } // getByName method ends
 }
 
 module.exports = {

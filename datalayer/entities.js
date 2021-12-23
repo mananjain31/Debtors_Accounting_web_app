@@ -2,8 +2,8 @@ class UnitOfMeasurement
 {
     constructor(code, name) 
     {
-        this.code = code;
-        this.name = name;
+        this.code = code ? parseInt(code) : code;
+        this.name = name?.trim();
     }
     getCode() 
     {

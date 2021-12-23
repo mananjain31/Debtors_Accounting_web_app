@@ -54,6 +54,33 @@ if(testWhat == 'getAll')
     const uom_manager = new managers.UnitOfMeasurementManager();
     uom_manager
     .getAll()
-    .then((unitOfMeasurements)=> console.log("Succesfully getAll : ", unitOfMeasurements))
+    .then((unitOfMeasurements)=> console.log(unitOfMeasurements))
     .catch(err=>console.log(err))
 } // getAll ends
+
+// getByCode   
+if(testWhat == 'getByCode')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`code missing`);
+    const code =  process.argv[3];
+    const uom_manager = new managers.UnitOfMeasurementManager();
+    uom_manager
+    .getByCode(code)
+    .then(unitOfMeasurement=> console.log(unitOfMeasurement))
+    .catch(err=>console.log(err))
+} // getByCode ends
+
+// getByName   
+if(testWhat == 'getByName')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`name missing`);
+    const name =  process.argv[3];
+    const uom_manager = new managers.UnitOfMeasurementManager();
+    uom_manager
+    .getByName(name)
+    .then(unitOfMeasurement=> console.log(unitOfMeasurement))
+    .catch(err=>console.log(err))
+} // getByName ends
+
