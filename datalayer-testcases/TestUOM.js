@@ -46,3 +46,14 @@ if(testWhat == 'update')
     .then(()=> console.log("Succesfully updated : ", unitOfMeasurement))
     .catch(err=>console.log(err))
 } // update ends
+
+// getAll   
+if(testWhat == 'getAll')
+{
+    // check if data given
+    const uom_manager = new managers.UnitOfMeasurementManager();
+    uom_manager
+    .getAll()
+    .then((unitOfMeasurements)=> console.log("Succesfully getAll : ", unitOfMeasurements))
+    .catch(err=>console.log(err))
+} // getAll ends
