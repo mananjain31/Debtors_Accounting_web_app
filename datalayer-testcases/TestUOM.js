@@ -15,4 +15,18 @@ if(testWhat == 'add')
     .add(unitOfMeasurement)
     .then(()=> console.log("Succesfully added : ", unitOfMeasurement))
     .catch(err=>console.log(err))
-} //add ends
+} // add ends
+
+
+// remove   
+if(testWhat == 'remove')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`code missing`);
+    const code =  process.argv[3];
+    const uom_manager = new managers.UnitOfMeasurementManager();
+    uom_manager
+    .remove(code)
+    .then(()=> console.log("Succesfully deleted : ", code))
+    .catch(err=>console.log(err))
+} // remove ends
