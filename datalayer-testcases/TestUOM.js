@@ -30,3 +30,19 @@ if(testWhat == 'remove')
     .then(()=> console.log("Succesfully deleted : ", code))
     .catch(err=>console.log(err))
 } // remove ends
+
+// update   
+if(testWhat == 'update')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`code missing`);
+    if(process.argv.length < 5) return console.log(`name missing`);
+    const code =  process.argv[3];
+    const name =  process.argv[4];
+    const unitOfMeasurement = new entities.UnitOfMeasurement(code, name);
+    const uom_manager = new managers.UnitOfMeasurementManager();
+    uom_manager
+    .update(unitOfMeasurement)
+    .then(()=> console.log("Succesfully updated : ", unitOfMeasurement))
+    .catch(err=>console.log(err))
+} // update ends
