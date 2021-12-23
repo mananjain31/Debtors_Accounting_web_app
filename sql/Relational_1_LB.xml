@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+<changeSet author="pc" id="_10">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter="/" splitStatements="false"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\MDSYS.SDO_GEOMETRY.sql"/>
+</changeSet>
+<changeSet author="pc" id="_20">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter="/" splitStatements="false"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\XMLTYPE.sql"/>
+</changeSet>
+<changeSet author="pc" id="_30">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item.sql"/>
+</changeSet>
+<changeSet author="pc" id="_40">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_Constraints.sql"/>
+</changeSet>
+<changeSet author="pc" id="_50">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax.sql"/>
+</changeSet>
+<changeSet author="pc" id="_60">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax_Constraints.sql"/>
+</changeSet>
+<changeSet author="pc" id="_70">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom.sql"/>
+</changeSet>
+<changeSet author="pc" id="_80">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom_Constraints.sql"/>
+</changeSet>
+<changeSet author="pc" id="_90">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom.sql"/>
+</changeSet>
+<changeSet author="pc" id="_100">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom_Constraints.sql"/>
+</changeSet>
+<changeSet author="pc" id="_110">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_tax_ac_item_FK.sql"/>
+</changeSet>
+<changeSet author="pc" id="_120">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_item_FK.sql"/>
+</changeSet>
+<changeSet author="pc" id="_130">
+  <sqlFile dbms="oracle" encoding="UTF-8" endDelimiter=";" splitStatements="true"  stripComments="false" 
+           path="data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_uom_FK.sql"/>
+</changeSet>
+</databaseChangeLog>

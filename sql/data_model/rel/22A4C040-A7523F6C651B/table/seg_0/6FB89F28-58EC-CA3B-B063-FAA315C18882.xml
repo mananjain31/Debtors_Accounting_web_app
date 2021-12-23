@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6FB89F28-58EC-CA3B-B063-FAA315C18882" name="ac_item">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:05:24 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="code" id="63ACDCCB-F0B2-C5BE-A645-B50B65B7337E">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:06:33 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="9DFF348D-A454-A68C-0612-497B730CFF8D">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:08:00 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DE9A002C-56BF-8D91-D525-B7CFEE202784" name="ac_item_PK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:06:33 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63ACDCCB-F0B2-C5BE-A645-B50B65B7337E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C252FF2-9C16-B3C0-DA95-D4F91F92362E" name="ac_item__UN">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:08:44 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DFF348D-A454-A68C-0612-497B730CFF8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

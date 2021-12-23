@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8CC3D35A-3E77-9E23-7040-70C5E948ACC8" name="ac_item_uom">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:09:35 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="item_code" id="87850663-CC55-201D-F5D3-FE785F1969DE">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:10:44 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F3EB4A4-0DEF-C410-1B77-9173968293A9" referredColumn="63ACDCCB-F0B2-C5BE-A645-B50B65B7337E"/>
+</associations>
+</Column>
+<Column name="uom_code" id="D6DB4505-F8CE-0EBE-7A87-099435331E60">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:11:10 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F1A58C7-2A3D-B84A-E18F-1C88FB2F9137" referredColumn="D0D25C35-1CE4-221B-38F0-4F1D627D22EF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="882CE6ED-1652-CEAA-7A6B-7F654BC5219E" name="ac_item_uom_PK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:11:10 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6DB4505-F8CE-0EBE-7A87-099435331E60"/>
+<colUsage columnID="87850663-CC55-201D-F5D3-FE785F1969DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68F3F228-877A-D5D5-AE59-3F41BFE6C72F" name="ac_item_uom_ac_item_FK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:17:52 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="87850663-CC55-201D-F5D3-FE785F1969DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86E82ACE-C076-F3E2-C8AD-760A47B1D949" name="ac_item_uom_ac_uom_FK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:17:55 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6DB4505-F8CE-0EBE-7A87-099435331E60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+<changeSet author="pc" id="_10">
+ <n0:runOracleScript objectName="MDSYS.SDO_GEOMETRY.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\MDSYS.SDO_GEOMETRY.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_20">
+ <n0:runOracleScript objectName="XMLTYPE.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\XMLTYPE.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_30">
+ <n0:runOracleScript objectName="ac_item.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_40">
+ <n0:runOracleScript objectName="ac_item_Constraints.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_Constraints.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_50">
+ <n0:runOracleScript objectName="ac_item_tax.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_60">
+ <n0:runOracleScript objectName="ac_item_tax_Constraints.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax_Constraints.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_70">
+ <n0:runOracleScript objectName="ac_item_uom.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_80">
+ <n0:runOracleScript objectName="ac_item_uom_Constraints.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom_Constraints.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_90">
+ <n0:runOracleScript objectName="ac_uom.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_100">
+ <n0:runOracleScript objectName="ac_uom_Constraints.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom_Constraints.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_110">
+ <n0:runOracleScript objectName="ac_item_tax_ac_item_FK.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_tax_ac_item_FK.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_120">
+ <n0:runOracleScript objectName="ac_item_uom_ac_item_FK.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_item_FK.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+<changeSet author="pc" id="_130">
+ <n0:runOracleScript objectName="ac_item_uom_ac_uom_FK.sql" ownerName="OSDDM-pc" sourceType="FILE" >
+   <n0:source><![CDATA[data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_uom_FK.sql]]></n0:source>
+ </n0:runOracleScript>
+</changeSet>
+</databaseChangeLog>

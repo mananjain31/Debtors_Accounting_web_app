@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3EA20307-1FCF-F573-5F18-1251B68B9B26" name="ac_uom">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 15:59:19 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="code" id="D0D25C35-1CE4-221B-38F0-4F1D627D22EF">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:00:34 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="28211622-5644-0E73-B471-3609F77FB7BF">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:00:34 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="41A3C789-E0F1-E644-F284-2F787849D2F4" name="ac_uom_PK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:00:34 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0D25C35-1CE4-221B-38F0-4F1D627D22EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ECC732EC-8CC9-05A7-E3E6-E2E246C684D3" name="ac_uom__UN">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:02:51 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28211622-5644-0E73-B471-3609F77FB7BF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

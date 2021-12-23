@@ -1,0 +1,13 @@
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\MDSYS.SDO_GEOMETRY.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Structure_Type\XMLTYPE.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_Constraints.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_tax_Constraints.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_item_uom_Constraints.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\Table\ac_uom_Constraints.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_tax_ac_item_FK.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_item_FK.sql
+@@data_model\Relational_1\Oracle_Database_11g\DataObjects\ForeignKey\ac_item_uom_ac_uom_FK.sql

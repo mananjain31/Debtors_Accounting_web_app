@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="73FC1606-B619-B9DE-64F1-11A4C3CC35A3" name="ac_item_tax">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:21:57 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="item_code" id="867DC566-BBDC-EEBA-977E-5D34EFC99350">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:22:35 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4A1DFCE2-4724-53D2-DAC5-357B3D4714D1" referredColumn="63ACDCCB-F0B2-C5BE-A645-B50B65B7337E"/>
+</associations>
+</Column>
+<Column name="cgst" id="15E8C9FE-48BD-8B69-219B-1FFE70BA4FE4">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:22:35 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sgst" id="9C4CD039-4212-AB57-D127-CE717C9181CA">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:22:35 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="igst" id="48EF0486-D353-E32F-6C2C-0F8A23A97116">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:23:36 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AE3A1BC3-433D-04A2-0C4A-D655B216595A" name="ac_item_tax_PK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:22:35 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="867DC566-BBDC-EEBA-977E-5D34EFC99350"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3EEC5A6B-4FDE-3002-823E-74D115750C36" name="ac_item_tax_ac_item_FK">
+<createdBy>pc</createdBy>
+<createdTime>2021-11-18 16:25:48 UTC</createdTime>
+<ownerDesignName>data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="867DC566-BBDC-EEBA-977E-5D34EFC99350"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
