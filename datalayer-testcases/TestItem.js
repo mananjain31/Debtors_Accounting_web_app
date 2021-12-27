@@ -22,3 +22,36 @@ if(testWhat == 'add')
     .then(()=> console.log("Succesfully added : ", item))
     .catch(err=>console.log(err))
 } // add ends
+
+// remove   
+if(testWhat == 'remove')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`code missing`);
+    const code =  process.argv[3];
+    const item_manager = new managers.ItemManager();
+    item_manager
+    .remove(code)
+    .then(()=> console.log("Succesfully deleted : ", code))
+    .catch(err=>console.log(err))
+} // remove ends
+
+// getAll   
+if(testWhat == 'getAll')
+{
+    // check if data given
+    const item_manager = new managers.ItemManager();
+    item_manager
+    .getAll()
+    .then((items)=> {
+        for(const item of items){
+            for(const k in item)
+            {
+                console.log(k,":",item[k]);
+            }
+            console.log();
+        }
+    })
+    .catch(err=>console.log(err))
+} // getAll ends
+

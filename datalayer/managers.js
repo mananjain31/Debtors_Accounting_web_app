@@ -271,6 +271,73 @@ class ItemManager
         await connection.commit();
         await connection.close();
     }
+
+    async remove(code)
+    {
+        // existence and value checks
+        if(!code) throw 'Code Required';
+        if(code < 0) throw 'Invalid Code, Must be a positive integer';
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        // Result Set : rs
+        let rs;
+        // checking if code exists
+        rs = await connection.execute(`select code from ac_item where code = ${code}`);
+        if(rs.rows.length == 0)
+        {
+            await connection.close();
+            throw `Invalid Code : ${code}`;
+        }
+
+        // deleting from ac_item_tax
+        await connection.execute(`delete from ac_item_tax where item_code = ${code}`);
+
+        // deleting from  ac_item_uom
+        await connection.execute(`delete from ac_item_uom where item_code = ${code}`);
+
+        // deleting from ac_item
+        await connection.execute(`delete from ac_item where code = ${code}`);
+
+        await connection.commit();
+        await connection.close();
+    }
+    
+    async getAll()
+    {
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        // Result Set : rs
+        const items = [];
+        const rs1 = await connection.execute('select * from ac_item');
+        const uom_manager = new UnitOfMeasurementManager();
+        for(const row of rs1.rows)
+        {
+            const code = row[0];
+            const name = row[1].trim();
+            const rs2 = await connection.execute(`select * from ac_item_tax where item_code = ${code}`);
+            const cgst = rs2.rows[0][1];
+            const sgst = rs2.rows[0][2];
+            const igst = rs2.rows[0][3];
+            const rs3 = await connection.execute(`select * from ac_item_uom where item_code = ${code}`);
+            const unitOfMeasurements = [];
+            for(const uom_row of rs3.rows)
+            {
+                unitOfMeasurements.push(
+                    await uom_manager.getByCode(uom_row[1])
+                    );
+            }
+            items.push(
+                new entities.Item(code, name, cgst, sgst, igst, unitOfMeasurements)
+            );
+        }       
+        
+        await connection.close();
+        return items;
+    }
 }
 
 module.exports = {

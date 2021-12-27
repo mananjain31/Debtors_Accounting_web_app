@@ -14,7 +14,7 @@ class Item
     constructor(code, name, cgst, sgst, igst, unitOfMeasurements)
     {
         this.code = parseInt(code);
-        this.name = name;
+        this.name = name?.trim();
         this.cgst = parseFloat(cgst);
         this.sgst = parseFloat(sgst);
         this.igst = parseFloat(igst);
