@@ -25,6 +25,14 @@ class Item
     getCgst() {return this.cgst;}
     getSgst() {return this.sgst;}
     getIgst() {return this.igst;}
+
+    static from(item) {
+        const unitOfMeasurements = [];
+        for(const unitOfMeasurement of item.unitOfMeasurements){
+            unitOfMeasurements.push(new UnitOfMeasurement(unitOfMeasurement.code, unitOfMeasurement.name));
+        }
+        return new Item(item.code, item.name, item.cgst, item.sgst, item.igst, unitOfMeasurements);
+    }
 }
 
 module.exports = {UnitOfMeasurement, Item};

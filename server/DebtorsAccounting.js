@@ -15,6 +15,10 @@ app.get('/', (req, res)=>res.redirect('index.html'))
 app.use('/items', itemsRouter)
 app.use('/unitOfMeasurements', unitOfMeasurementsRouter)
 
+app.use((req, res)=>{
+    res.redirect('404.html');
+});
+
 app.use(errorHandler);
 
 

@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {getAll} = require('../controllers/items');
+const {getAll, update} = require('../controllers/items');
 
 router.route('/')
-    .get(getAll);
+    .get(getAll)
+    .put(update)
 
 module.exports = router;
