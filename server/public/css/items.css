@@ -1,0 +1,39 @@
+.selected-item-form {
+}
+
+.uom-lists-container {
+    display : flex;
+    justify-content : center;
+}
+.uom-list-container {
+    flex : 1;
+}
+
+.uom-list-heading {
+    text-align: center;
+}
+
+.uom-list {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    flex : 1;
+    overflow-y: auto;
+}
+
+.uom-list-item {
+    border: 1px solid gray;
+    text-align: center;
+    margin: .1rem;
+    width: 90%;
+    cursor: pointer;
+}
+
+.right-form-portion {
+    height: 100%;
+}
+
+.uom-list-item-selected {
+    background-color: gray;
+    color: white;
+}

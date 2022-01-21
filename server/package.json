@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "DebtorsAccounting.js",
+  "scripts": {
+    "dev": "nodemon DebtorsAccounting.js",
+    "start": "node DebtorsAccounting.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "datalayer": "file:../datalayer",
+    "express": "^4.17.2"
+  }
+}
