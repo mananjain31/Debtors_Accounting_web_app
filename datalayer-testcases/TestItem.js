@@ -36,6 +36,26 @@ if(testWhat == 'remove')
     .catch(err=>console.log(err))
 } // remove ends
 
+// update   
+if(testWhat == 'update')
+{
+    const code = 2;
+    const name = "Screw";
+    const cgst = 18;
+    const sgst = 18;
+    const igst = 24;
+    const unitOfMeasurements = [];
+    unitOfMeasurements.push(new entities.UnitOfMeasurement(16, "KG"));
+    unitOfMeasurements.push(new entities.UnitOfMeasurement(17, "pcs"));
+    const item = new entities.Item(code, name, cgst, sgst, igst, unitOfMeasurements);
+    const item_manager = new managers.ItemManager();
+    item_manager
+    .update(item)
+    .then(()=> console.log("Succesfully updated : ", item))
+    .catch(err=>console.log(err))
+} // update ends
+
+
 // getAll   
 if(testWhat == 'getAll')
 {

@@ -304,6 +304,88 @@ class ItemManager
         await connection.close();
     }
     
+    async update(item)
+    {
+        // length and value checks
+        if(!item.name || item.name.length == 0) throw "Item Name required";
+        if(item.name.length > 25) throw "Name cannot exceed 25 characters";
+        if(!item.cgst) item.cgst = 0;
+        if(!item.sgst) item.sgst = 0;
+        if(!item.igst) item.igst = 0;
+        if(item.cgst<0) throw "Cgst cannot be nagative";
+        if(item.sgst<0) throw "Sgst cannot be nagative";
+        if(item.igst<0) throw "Igst cannot be nagative";
+
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        // Result Set : rs
+        let rs;
+
+        // checking if name alredy exists
+        rs = await connection.execute(`select code from ac_item where lower(name) = lower('${item.name}') and code <> ${item.code}`);
+        if(rs.rows.length > 0)
+        {
+            await connection.close();
+            throw `${item.name} exists`;
+        }
+
+        // checking and inserting UOM in ac_uom if not exists
+        for(const unitOfMeasurement of item.unitOfMeasurements)
+        {
+            // length and value checks
+            if(!unitOfMeasurement.code || unitOfMeasurement.code < 0) unitOfMeasurement.code = 0;
+            if(!unitOfMeasurement.name || unitOfMeasurement.name.length == 0) 
+            {
+                await connection.close();
+                throw `Unit Of Measurement name required`;
+            }
+            if(unitOfMeasurement.name.length > 5) 
+            {
+                await connection.close();
+                throw `Unit Of Measurement name cannot exceed 5 characters`;
+            }
+
+            // checking if uom exists with that name if yes then assign its code to this object
+            rs = await connection.execute(`select code from ac_uom where lower(name) = lower('${unitOfMeasurement.name}')`);
+            if(rs.rows.length > 0) unitOfMeasurement.code = parseInt(rs.rows[0][0]);
+            else 
+            {
+                // adding uom
+                await connection.execute(`insert into ac_uom (name) values('${unitOfMeasurement.name}')`);
+
+                // getting code from the inserted record and setting it to our object
+                rs = await connection.execute(`select * from ac_uom where lower(name) = lower('${unitOfMeasurement.name}')`);
+                unitOfMeasurement.code = parseInt(rs.rows[0][0]);
+            }
+        } // for loop ends
+
+        // checking if item code exists
+        rs = await connection.execute(`select code from ac_item where code = ${item.code}`);
+        if(rs.rows.length == 0)
+        {
+            await connection.close();
+            throw `Invalid Code : ${item.code}`;
+        }
+
+        // adding item
+        await connection.execute(`update ac_item set name = '${item.name}' where code = ${item.code}`);
+
+        // adding item code to ac_item_tax
+        await connection.execute(`update ac_item_tax set  cgst = ${item.cgst}, sgst = ${item.sgst}, igst = ${item.igst} where item_code = ${item.code}`);
+
+        // adding item code and uom codes to ac_item_uom table
+        await connection.execute(`delete from ac_item_uom where item_code = ${item.code}`);
+        for(const unitOfMeasurement of item.unitOfMeasurements)
+        {
+            await connection.execute(`insert into ac_item_uom values(${item.code}, ${unitOfMeasurement.code})`);
+        }
+
+        await connection.commit();
+        await connection.close();
+    }
+
     async getAll()
     {
         // Connection 
