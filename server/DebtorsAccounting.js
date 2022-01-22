@@ -22,4 +22,4 @@ app.use((req, res)=>{
 app.use(errorHandler);
 
 
-app.listen(port, (err)=>err ? console.log(err) : console.log('listening at port '+port))
+app.listen(port, (err)=>err ? console.log(err) : console.log('listening at '+port+' visit : http://localhost:'+port))

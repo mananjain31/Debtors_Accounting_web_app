@@ -343,126 +343,117 @@
 
             <div class="row selected-item-form" id="selectedItemForm">
               
-              <!-- Left Form portion -->
-
-              <div class="col-md-6 left-form-portion">
-                <div class="x_panel">
+              <div class="x_panel"> 
                   <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
+                    <h2>Update Selected Item</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    <br />
-                    <form class="form-label-left input_mask">
+                <div class="x_content">
+                  <!-- Left Form portion -->
+                  <div class="col-md-6 left-form-portion">
+                        <br />
+                        <form class="form-label-left input_mask">
 
 
-                      <div class="form-group row">
-                        <label for='selectedItemCode'
-                          class="col-form-label col-md-3 col-sm-3 ">Item Code </label>
-                        <div class="col-md-9 col-sm-9 ">
-                          <input id='selectedItemCode'
-                            type="text" class="form-control" disabled="disabled" >
-                        </div>
+                          <div class="form-group row">
+                            <label for='selectedItemCode'
+                              class="col-form-label col-md-3 col-sm-3 ">Item Code </label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input id='selectedItemCode'
+                                type="text" class="form-control" disabled="disabled" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="selectedItemName"
+                              class="col-form-label col-md-3 col-sm-3 ">Item's Name</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input id="selectedItemName"
+                                type="text" class="form-control" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="selectedItemCGST"
+                              class="col-form-label col-md-3 col-sm-3 ">Item's CGST</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input id="selectedItemCGST"
+                                type="text" class="form-control" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="selectedItemSGST"
+                              class="col-form-label col-md-3 col-sm-3 ">Item's SGST</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input id="selectedItemSGST"
+                                type="text" class="form-control" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="selectedItemIGST"
+                              class="col-form-label col-md-3 col-sm-3 ">Item's IGST</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input id="selectedItemIGST"
+                                type="text" class="form-control" >
+                            </div>
+                          </div>
+
+                        </form>
+                  </div>
+
+                  <!-- /Left Form portion -->
+                  
+                  <!-- Right Form portion -->
+
+                  <div class="col-md-6 right-form-portion">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Unit Of Measurements</h2>
+                        <div class="clearfix"></div>
                       </div>
+                      <div class="x_content">
+                        <form class="form-label-left input_mask">
+                          
+                          <div class='uom-lists-container'>
 
-                      <div class="form-group row">
-                        <label for="selectedItemName"
-                           class="col-form-label col-md-3 col-sm-3 ">Item's Name</label>
-                        <div class="col-md-9 col-sm-9 ">
-                          <input id="selectedItemName"
-                            type="text" class="form-control" >
-                        </div>
-                      </div>
+                            <div class="uom-list-container">
+                              <h6 class="uom-list-heading">Not Added</h6>
+                              <div class='unadded-uom uom-list'>
+                              </div>
+                            </div>
+                            
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="uom-list-heading"> <br/> </h6>
+                              <button type="button" class="btn btn-primary" id="addUOMButton"> &gt; </button>
+                              <button type="button" class="btn btn-primary" id="removeUOMButton"> &lt; </button>
+                            </div>
 
-                      <div class="form-group row">
-                        <label for="selectedItemCGST"
-                          class="col-form-label col-md-3 col-sm-3 ">Item's CGST</label>
-                        <div class="col-md-9 col-sm-9 ">
-                          <input id="selectedItemCGST"
-                            type="text" class="form-control" >
-                        </div>
-                      </div>
+                            <div class="uom-list-container">
+                              <h6 class="uom-list-heading">Added</h6>
+                              <div class='added-uom uom-list'> 
+                              </div>
+                            </div>
+                            
+                          </div>
 
-                      <div class="form-group row">
-                        <label for="selectedItemSGST"
-                          class="col-form-label col-md-3 col-sm-3 ">Item's SGST</label>
-                        <div class="col-md-9 col-sm-9 ">
-                          <input id="selectedItemSGST"
-                            type="text" class="form-control" >
-                        </div>
+                        </form>
                       </div>
+                    </div>
+                  </div>
 
-                      <div class="form-group row">
-                        <label for="selectedItemIGST"
-                          class="col-form-label col-md-3 col-sm-3 ">Item's IGST</label>
-                        <div class="col-md-9 col-sm-9 ">
-                          <input id="selectedItemIGST"
-                            type="text" class="form-control" >
-                        </div>
-                      </div>
-                      
-                      <div class="ln_solid"></div>
-                      <div class="form-group row">
-                        <div class="col-md-9 col-sm-9 ">
-                          <button type="submit" class="btn btn-success">Update</button>
-                        </div>
-                      </div>
-
-                    </form>
+                  <!-- /Right Form portion -->
+                  
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group row">
+                  <div class="col-md-12 col-sm-12 ">
+                    <button type="submit" class="btn btn-success" id="updateSelectedItemButton">Update</button>
                   </div>
                 </div>
-              </div>
-
-              <!-- /Left Form portion -->
-              
-              <!-- Right Form portion -->
-
-              <div class="col-md-6 right-form-portion">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <form class="form-label-left input_mask">
-                      
-                      <div class='uom-lists-container'>
-
-                        <div class="uom-list-container">
-                          <h6 class="uom-list-heading">Not Added</h6>
-                          <div class='unadded-uom uom-list'>
-                          </div>
-                        </div>
-                        
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="uom-list-heading"> <br/> </h6>
-                          <button type="button" class="btn btn-primary" id="addUOMButton"> &gt; </button>
-                          <button type="button" class="btn btn-primary" id="removeUOMButton"> &lt; </button>
-                        </div>
-
-                        <div class="uom-list-container">
-                          <h6 class="uom-list-heading">Added</h6>
-                          <div class='added-uom uom-list'> 
-                          </div>
-                        </div>
-                        
-                      </div>
-                      
-                      <div class="ln_solid"></div>
-                      <div class="form-group row">
-                        <div class="col-md-9 col-sm-9 ">
-                          <button type="button" class="btn btn-primary">Undo Changes</button>
-                          <button type="submit" class="btn btn-success">Update</button>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <!-- /Right Form portion -->
-
+                  
+            </div>
 
             </div>
   

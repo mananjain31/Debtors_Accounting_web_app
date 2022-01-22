@@ -385,7 +385,8 @@ class ItemManager
         await connection.commit();
         await connection.close();
         
-        return await this.getByCode(item.code);
+        const updatedItem = await this.getByCode(item.code);
+        return updatedItem;
     }
 
     async getByCode(code)

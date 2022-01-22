@@ -9,9 +9,8 @@ const getAll = asyncWrapper( async(req, res, next)=>{
 })
 
 const update = asyncWrapper( async(req, res, next)=>{
-    const item = Item.from(req.body.item);
     const itemManager = new ItemManager();
-    const updatedItem = await itemManager.update(item);
+    const updatedItem = await itemManager.update(req.body);
     res.status(200).json(updatedItem);
 })
 

@@ -1,4 +1,5 @@
 import DataModel from './DataModel.js';
+import CustomAlert from '../utils/CustomAlert.js';
 
 // global variables
 let model;
@@ -15,14 +16,28 @@ $(
     ()=>window.dispatchEvent(new Event('resize'))
 );
 
-
-const fetchModel = async () =>{
+// AJAX functions
+const fetchModelAJAX = async () =>{
     const [itemsRes, unitOfMeasurementsRes] = await Promise.all([fetch('/items'), fetch('/unitOfMeasurements')]);
     const [items, unitOfMeasurements] = await Promise.all([itemsRes.json(), unitOfMeasurementsRes.json()]);
 
     return new DataModel(items, unitOfMeasurements, $('.items-table').dataTable());    
 }
 
+const updateSelectedItemAJAX = async(item) => {
+    const res = await fetch('/items', {
+        method:'PUT',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(item)
+    });
+    // error here continue from here
+    const data = await res.json();
+    return data;
+}
+
+// AJAX functions ENDS
 
 const addUOMListItem = (unitOfMeasurement, where) =>{
     const uomListItem = HTMLS.uomListItem({
@@ -58,6 +73,16 @@ const removeSelectedUnitOfMeasurements = () => {
     $('.added-uom .uom-list-item-selected').each((idx, ele) => {
         addUOMListItem(removeUOMListItem(ele.id), 'unadded');
     });
+}
+
+const getAddedUnitOfMeasuremments = () => {
+    const unitOfMeasurements = [];
+    $('.added-uom .uom-list-item').each((idx, ele) => {
+        console.log(ele.id);
+        const uomListItem = $(`.uom-list-item#${ele.id}`);
+        unitOfMeasurements.push( {code : ele.id, name : uomListItem.text()?.trim()} );
+    });
+    return unitOfMeasurements;
 }
 
 const uomListSetup = (unitOfMeasurements) => {
@@ -120,11 +145,36 @@ const populateItemsTable = () =>{
     )
 }
 
+const reDrawItemsTable = () =>{
+    model.items.forEach((item)=>
+        model.itemsTable.fnDeleteRow(0)
+    );
+    populateItemsTable();
+}
+
+const updateSelectedItem = async() => {
+    const item = {};
+    item.code = $('.selected-item-form #selectedItemCode').val();
+    item.name = $('.selected-item-form #selectedItemName').val();
+    item.cgst = $('.selected-item-form #selectedItemCGST').val();
+    item.sgst = $('.selected-item-form #selectedItemSGST').val();
+    item.igst = $('.selected-item-form #selectedItemIGST').val();
+    item.unitOfMeasurements = getAddedUnitOfMeasuremments();
+    const updatedItem = await updateSelectedItemAJAX(item);
+    if(updatedItem.error)
+        return CustomAlert.show('An Error Occured', CustomAlert.state.error);
+    CustomAlert.show('Item Updated Succesfully', CustomAlert.state.success);
+    model.items = model.items.map(item=>item.code == updatedItem.code ? updatedItem : item);
+    reDrawItemsTable();
+}
+
 const main = async () => {
-    model = await fetchModel();
+    model = await fetchModelAJAX();
     populateItemsTable();    
     $('#addUOMButton').click(addSelectedUnitOfMeasurements)
     $('#removeUOMButton').click(removeSelectedUnitOfMeasurements)
+    $('#removeUOMButton').click(removeSelectedUnitOfMeasurements)
+    $('#updateSelectedItemButton').click(updateSelectedItem)
 }
 
 $(
