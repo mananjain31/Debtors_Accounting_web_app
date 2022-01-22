@@ -384,8 +384,48 @@ class ItemManager
 
         await connection.commit();
         await connection.close();
+        
+        return await this.getByCode(item.code);
     }
 
+    async getByCode(code)
+    {
+        // validation : code exists or not
+        if(!code) throw `Code Required`;
+        // validation : code is positive
+        if(code <= 0) throw `Invalid Code : must be > 0`;
+        
+        // Connection 
+        const connection = await connector.getConnection();
+        // validation : connection check
+        if(!connection) throw `Unable to connect to the server`;
+        // Result Set : rs
+        const items = [];
+        const rs1 = await connection.execute(`select * from ac_item where code = ${code}`);
+        if(rs1.rows.length === 0)
+        {
+            await connection.close();
+            throw `Invalid Code ${code}`;
+        }
+        const uom_manager = new UnitOfMeasurementManager();
+        const row = rs1.rows[0];
+        const name = row[1].trim();
+        const rs2 = await connection.execute(`select * from ac_item_tax where item_code = ${code}`);
+        const cgst = rs2.rows[0][1];
+        const sgst = rs2.rows[0][2];
+        const igst = rs2.rows[0][3];
+        const rs3 = await connection.execute(`select * from ac_item_uom where item_code = ${code}`);
+        const unitOfMeasurements = [];
+        for(const uom_row of rs3.rows)
+        {
+            unitOfMeasurements.push(
+                await uom_manager.getByCode(uom_row[1])
+                );
+        }
+        const item = new entities.Item(code, name, cgst, sgst, igst, unitOfMeasurements)
+        await connection.close();
+        return item;
+    }
     async getAll()
     {
         // Connection 
