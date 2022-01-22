@@ -59,7 +59,6 @@ if(testWhat == 'update')
 // getAll   
 if(testWhat == 'getAll')
 {
-    // check if data given
     const item_manager = new managers.ItemManager();
     item_manager
     .getAll()
@@ -74,4 +73,22 @@ if(testWhat == 'getAll')
     })
     .catch(err=>console.log(err))
 } // getAll ends
+
+// getByCode   
+if(testWhat == 'getByCode')
+{
+    // check if data given
+    if(process.argv.length < 4) return console.log(`code missing`);
+    const code =  process.argv[3];
+    const item_manager = new managers.ItemManager();
+    item_manager
+    .getByCode(code)
+    .then((item)=> {
+            for(const k in item)
+            {
+                console.log(k,":",item[k]);
+            }
+    })
+    .catch(err=>console.log(err))
+} // getByCode ends
 
